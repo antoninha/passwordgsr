@@ -2,7 +2,7 @@ from math import comb
 from Word import Word
 
 class ToL33t(Word):
-    def generate_combinations(self):
+    def _generate_combinations(self):
         replacements = {
             'a': '4',
             'e': '3',
@@ -16,18 +16,18 @@ class ToL33t(Word):
             'g': '6'
         }
 
-        def recursive_combinations(string, index, current_combination, results):
+        def _recursive_combinations(string, index, current_combination, results):
             if index == len(string):
                 results.append(current_combination)
                 return
 
             letter = string[index]
             if letter in replacements:
-                recursive_combinations(string, index + 1, current_combination + replacements[letter], results)
+                _recursive_combinations(string, index + 1, current_combination + replacements[letter], results)
 
-            recursive_combinations(string, index + 1, current_combination + letter, results)
+            _recursive_combinations(string, index + 1, current_combination + letter, results)
 
         results = []
-        recursive_combinations(self.string, 0, '', results)
+        _recursive_combinations(self.string, 0, '', results)
         return results
 

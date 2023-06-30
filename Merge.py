@@ -10,16 +10,10 @@ class Merge:
         self.dates = dates
         self.args = kargs
 
-    def mergeWords(self) : 
-        words = []
-        for word in self.words:
-            words.append(Word(word,self.args).getWord())
-        return words
-    
-    def mergeDate(self) : 
-        dates = []
-        for date in self.dates:
-            dates.append(Date(date,self.args).getDate())
-            print(dates)
-        return dates
+    def merge(self) :
+        date = Date.getDate(self.dates)
+        word = Word.getWord(self.words)
+        char = Specials_characters.get_specials_chararacters()
+        print(itertools.product(date,word,char))
+
     
