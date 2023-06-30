@@ -11,8 +11,8 @@ class Merge:
         self.args = kargs
 
     def merge(self) :
-        date = Date.getDate(self.dates)
-        word = Word.getWord(self.words)
+        date = Date(self.dates,self.args).getDate()
+        word = Word(self.dates,self.args).getWord()
         char = Specials_characters.get_specials_chararacters()
         print(itertools.product(date,word,char))
 
